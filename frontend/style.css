@@ -1,0 +1,291 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f3f6fa;
+    color: #1e293b;
+}
+
+.topbar {
+    background: #10243a;
+    color: white;
+    padding: 22px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.topbar p {
+    margin: 6px 0 0;
+    color: #c4d3e3;
+}
+
+.status {
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background: #f5bd4f;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 30px auto;
+}
+
+.welcome {
+    background: linear-gradient(120deg, #163b5c, #226a78);
+    color: white;
+    padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #5e9fcb;
+}
+
+.welcome .eyebrow {
+    color: #b8e4f4;
+}
+
+.welcome h2 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.welcome p {
+    line-height: 1.6;
+}
+
+.machine-icon {
+    font-size: 65px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 22px 0;
+}
+
+.card,
+.panel {
+    background: white;
+    border: 1px solid #e0e7ef;
+    border-radius: 12px;
+    padding: 22px;
+}
+
+.card span,
+.result-item span {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.card h3 {
+    margin: 12px 0 7px;
+    font-size: 20px;
+}
+
+.card small {
+    color: #64748b;
+}
+
+.panel {
+    margin-bottom: 22px;
+}
+
+.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.panel-heading h2,
+.panel h2 {
+    margin-top: 0;
+}
+
+.panel-heading p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: white;
+    font: inherit;
+    color: #1e293b;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #79b9ed;
+    border-color: #2879b7;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+button {
+    border: 0;
+    border-radius: 7px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #176b87;
+    color: white;
+}
+
+button:hover {
+    filter: brightness(0.94);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+button.secondary {
+    background: #e8eef5;
+    color: #24364b;
+}
+
+.result-panel {
+    border-top: 4px solid #176b87;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.result-item {
+    padding: 18px;
+    background: #f3f7fb;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.result-item strong {
+    font-size: 21px;
+}
+
+.disclaimer {
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.message {
+    margin: 12px 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+}
+
+.message.error {
+    color: #b42318;
+}
+
+.message.success {
+    color: #167348;
+}
+
+footer {
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+    padding: 25px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 750px) {
+
+    .cards,
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .welcome h2 {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .topbar,
+    .panel-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .cards,
+    .form-grid,
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome {
+        padding: 22px;
+    }
+
+    .machine-icon {
+        display: none;
+    }
+}

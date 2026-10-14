@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictive Maintenance Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div>
+            <h1>Predictive Maintenance</h1>
+            <p>Smart Manufacturing Monitoring System</p>
+        </div>
+        <span class="status"><span class="dot"></span> Local System</span>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">MACHINE INTELLIGENCE</p>
+                <h2>Machine Health Dashboard</h2>
+                <p>Enter machine readings to predict failure risk.</p>
+            </div>
+            <div class="machine-icon">⚙</div>
+        </section>
+
+        <section class="cards">
+            <article class="card">
+                <span>AI Model</span>
+                <h3>Random Forest</h3>
+                <small>Trained failure classifier</small>
+            </article>
+            <article class="card">
+                <span>Data Source</span>
+                <h3>AI4I 2020</h3>
+                <small>Historical machine dataset</small>
+            </article>
+            <article class="card">
+                <span>API Status</span>
+                <h3 id="apiStatus">Checking...</h3>
+                <small id="apiMessage">Connecting to local backend</small>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Machine Sensor Readings</h2>
+                    <p>Enter readings manually or load the sample values.</p>
+                </div>
+                <!-- <button type="button" id="sampleBtn" class="secondary">
+                    Load Sample
+                </button> -->
+
+                <button type="button" id="sampleBtn" class="secondary-btn">
+                    Load Any Sample
+                </button>
+
+                <button type="button" id="normalSampleBtn" class="secondary-btn">
+                    Load Normal Sample
+                </button>
+
+                <button type="button" id="failureSampleBtn" class="secondary-btn">
+                    Load Failure Sample
+                </button>
+
+            </div>
+
+            <form id="predictionForm">
+                <div class="form-grid">
+                    <label>
+                        Machine Type
+                        <select id="machine_type" required>
+                            <option value="L">L — Low</option>
+                            <option value="M" selected>M — Medium</option>
+                            <option value="H">H — High</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Air Temperature (K)
+                        <input id="air_temperature" type="number" min="250" max="400" step="0.1" value="300" required>
+                    </label>
+
+                    <label>
+                        Process Temperature (K)
+                        <input id="process_temperature" type="number" min="250" max="450" step="0.1" value="310"
+                            required>
+                    </label>
+
+                    <label>
+                        Rotational Speed (rpm)
+                        <input id="rotational_speed" type="number" min="1" max="10000" step="1" value="1500" required>
+                    </label>
+
+                    <label>
+                        Torque (Nm)
+                        <input id="torque" type="number" min="0" max="1000" step="0.1" value="45" required>
+                    </label>
+
+                    <label>
+                        Tool Wear (minutes)
+                        <input id="tool_wear" type="number" min="0" max="1000" step="1" value="100" required>
+                    </label>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" id="predictBtn">
+                        Predict Machine Failure
+                    </button>
+                    <button type="reset" class="secondary">
+                        Reset
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel result-panel" id="resultPanel" hidden>
+            <p class="eyebrow">MODEL RESPONSE</p>
+            <h2 id="resultTitle">Prediction Result</h2>
+            <p id="resultDescription"></p>
+
+            <div class="result-grid">
+                <div class="result-item">
+                    <span>Prediction</span>
+                    <strong id="predictionValue">—</strong>
+                </div>
+                <div class="result-item">
+                    <span>Failure Probability</span>
+                    <strong id="probabilityValue">—</strong>
+                </div>
+            </div>
+            <p class="disclaimer">
+                This is a model prediction based on supplied values,
+                not a guarantee of actual machine safety.
+            </p>
+        </section>
+
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+    </main>
+
+    <footer>
+        Predictive Maintenance for Smart Manufacturing · Local Prototype
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

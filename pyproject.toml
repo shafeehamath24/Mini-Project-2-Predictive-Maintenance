@@ -1,0 +1,14 @@
+[project]
+name = "predictive-maintenance"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pandas",
+    "joblib",
+    "scikit-learn"
+]
+
+[tool.vercel]
+entrypoint = "backend.main:app"
